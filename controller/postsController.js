@@ -16,9 +16,13 @@ function index(req, res){
 }
 
 // show
-router.get('/:id', (req, res) => {
-    res.send(`Dettaglio del post ${req.params.id}`)
-})
+function show(req, res){
+    const id = parseInt(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    res.json(post);
+}
 
 // store
 router.post('/', (req, res) => {
