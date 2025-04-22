@@ -40,6 +40,12 @@ function modify(req, res){
 }
 
 // destroy
-router.delete('/:id', (req, res) => {
-    res.send(`Rimozione del post ${req.params.id}`)
-})
+function destroy(req, res){
+    const id = parseInt(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    posts.splice(posts.indexOf(post), 1);
+
+    res.sendStatus(204);
+}
