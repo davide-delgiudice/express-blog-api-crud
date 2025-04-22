@@ -10,7 +10,6 @@ app.get('/', (req, res) => {
     res.send('Homepage Posts')
 })
 
-
 app.listen(port, () => {
     console.log(`Server in ascolto alla porta ${port}`);
 })
