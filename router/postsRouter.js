@@ -1,7 +1,11 @@
+// importo express
 const express = require('express');
 
+// assegno il router ad una variabile
 const router = express.Router();
 
+
+// importo il controller che mi servirà per le operazioni di router
 const postsController = require('../controller/postsController.js');
 
 // index
@@ -22,4 +26,6 @@ router.patch('/:id', postsController.modify);
 // destroy
 router.delete('/:id', postsController.destroy);
 
+
+// esporto il router
 module.exports = router;
