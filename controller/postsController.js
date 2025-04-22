@@ -49,3 +49,6 @@ function destroy(req, res){
 
     res.sendStatus(204);
 }
+
+// esporto i metodi come proprietà di un oggetto
+module.exports = { index, show, store, update, modify, destroy };
