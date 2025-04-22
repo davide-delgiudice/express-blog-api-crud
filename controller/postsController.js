@@ -28,6 +28,18 @@ function show(req, res){
     // assegno ad una nuova variabile il valore dell'id precedentemente dichiarato per recuperare lo specifico post
     const post = posts.find(post => post.id === id);
 
+    // controllo che la variabile post contenga qualcosa
+    if(!post){
+        // restituiamo uno stato corretto
+        res.status(404);
+
+        // restituiamo un messaggio di errore in forma di oggetto in formato json
+        res.json({
+            error: 'Not found',
+            message: 'Post non trovato'
+        })
+    }
+
     // restituisco in formato json
     res.json(post);
 }
@@ -54,6 +66,19 @@ function destroy(req, res){
 
     // assegno ad una nuova variabile il valore dell'id precedentemente dichiarato per recuperare lo specifico post
     const post = posts.find(post => post.id === id);
+
+    // controllo che la variabile post contenga qualcosa
+    if(!post){
+        // restituiamo uno stato corretto
+        res.status(404);
+
+        // restituiamo un messaggio di errore in forma di oggetto in formato json
+        res.json({
+            error: 'Not found',
+            message: 'Post non trovato'
+        })
+    }
+
 
     // rimuovo un singolo elemento nell'array tramite splice
     posts.splice(posts.indexOf(post), 1);
