@@ -50,7 +50,10 @@ function show(req, res){
 
 // definizione della funzione store
 function store(req, res){
-    res.send('Inserimento del nuovo post');
+    // definizione dell'ide dell'elemento da inserire
+    const newId = menu[menu.lenght -1].id +1;
+    
+    // creo il nuovo oggetto da inserire nell'array
 }
 
 // definizione della funzione update
