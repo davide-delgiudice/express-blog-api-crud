@@ -28,6 +28,10 @@ function show(req, res){
     // assegno ad una nuova variabile il valore dell'id precedentemente dichiarato per recuperare lo specifico post
     const post = posts.find(post => post.id === id);
 
+    // const post = posts.find((post) => {
+    //     return post.id == id;
+    // })
+
     // controllo che la variabile post contenga qualcosa
     if(!post){
         // restituiamo uno stato corretto
