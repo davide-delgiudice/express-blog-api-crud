@@ -70,7 +70,7 @@ function store(req, res){
     // restituisco lo stato
     res.status(201);
     res.json(postsNew);
-    
+
     console.log(posts);
 }
 
@@ -82,6 +82,17 @@ function update(req, res){
 
     // assegno ad una nuova variabile il valore dell'id precedentemente dichiarato per recuperare lo specifico post
     const post = posts.find(post => post.id === id);
+
+    // verifico se il post è presente o meno, e restituisco lo stato e un messaggio
+    if(!post){
+        res.status(404);
+
+        //invio un json
+        return res.json({
+            error: "Not Found",
+            message: "Post non trovato"
+        })
+    }
 
     // modifico i valori delle proprietà
     post.title = req.body.title,
