@@ -20,6 +20,7 @@ function index(req, res){
     res.json(postsFiltered);
 }
 
+
 // definizione della funzione show
 function show(req, res){
     // recupero il valore del parametro dinamico in una variabile
@@ -48,6 +49,7 @@ function show(req, res){
     res.json(post);
 }
 
+
 // definizione della funzione store
 function store(req, res){
     // definizione dell'id dell'elemento da inserire
@@ -71,15 +73,22 @@ function store(req, res){
     console.log(posts);
 }
 
+
 // definizione della funzione update
 function update(req, res){
-    res.send(`Modifica totale del post ${req.params.id}`);
+    // recupero il valore del parametro dinamico in una variabile
+    const id = parseInt(req.params.id);
+
+    // assegno ad una nuova variabile il valore dell'id precedentemente dichiarato per recuperare lo specifico post
+    const post = posts.find(post => post.id === id);
 }
+
 
 // definizione della funzione modify
 function modify(req, res){
     res.send(`Modifica parziale del post ${req.params.id}`);
 }
+
 
 // definizione della funzione destroy
 function destroy(req, res){
