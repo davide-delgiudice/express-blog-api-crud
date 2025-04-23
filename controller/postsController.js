@@ -70,6 +70,7 @@ function store(req, res){
     // restituisco lo stato
     res.status(201);
     res.json(postsNew);
+    
     console.log(posts);
 }
 
@@ -87,6 +88,11 @@ function update(req, res){
     post.content = req.body.content,
     post.image = req.body.image,
     post.tags = req.body.tags;
+
+    // restituisco il json
+    res.json(posts);
+
+    console.log(posts);
 }
 
 
