@@ -54,6 +54,9 @@ function show(req, res){
 function store(req, res){
     // definizione dell'id dell'elemento da inserire
     const newId = posts[posts.length -1].id +1;
+
+    // effettuare la creazione con il destructuring
+    // const { title, content, image, tags } = req.body;
     
     // creo il nuovo oggetto da inserire nell'array
     const postsNew = {
