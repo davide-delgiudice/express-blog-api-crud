@@ -13,6 +13,11 @@ app.use(express.json());
 // definisco use per richiamare gli asset statici nella cartella public
 app.use(express.static('public'));
 
+
+// importazione e registrazione del middleware
+const notFound = require('./middleware/notFound.js')
+
+
 // definisco la rotta base dell'app
 app.get('/', (req, res) => {
     res.send('Server del mio blog')
@@ -24,6 +29,10 @@ const postsRouter = require('./router/postsRouter.js');
 
 // definisco use per utilizzare postsRouter
 app.use ('/posts', postsRouter);
+
+
+// utilizzo delle funzioni middleware inserite dopo le rotte
+app.use(notFound);
 
 
 // imposto il server in ascolto sulla porta stabilita
